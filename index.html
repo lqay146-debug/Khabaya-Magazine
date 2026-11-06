@@ -24,8 +24,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/css/style.css">
-
   <style>
     :root {
       --navy: #142238;
@@ -33,16 +31,20 @@
       --gold: #bd9659;
       --gold-light: #e6d0a8;
       --cream: #f8f6f1;
-      --white: #fff;
+      --white: #ffffff;
       --text: #263347;
       --muted: #788394;
       --border: #eae6de;
       --shadow: 0 12px 35px rgba(20,34,56,.07);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -52,8 +54,14 @@
       line-height: 1.8;
     }
 
-    a { color: inherit; text-decoration: none; }
-    button, input { font: inherit; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input {
+      font: inherit;
+    }
 
     .container {
       width: min(1160px, 92%);
@@ -63,30 +71,29 @@
     /* الإهداء */
 
     .love-dedication {
+      background: #fffaf4;
       text-align: center;
-      padding: 17px 12px;
-      background: linear-gradient(135deg,#fff8ed,#f5e7d4);
-      border-bottom: 1px solid #e8d5b8;
+      padding: 20px 12px;
+      border-bottom: 1px solid #eee3d5;
     }
 
     .love-title {
-      color: #a34d52;
-      font-family: 'Amiri',serif;
+      color: #a66c68;
+      font-family: 'Amiri', serif;
       font-size: 27px;
       font-weight: 700;
-      line-height: 1.4;
     }
 
     .love-message {
-      color: #4b4140;
-      font-size: 14px;
+      color: #78645f;
+      font-size: 13px;
       margin-top: 3px;
     }
 
     .love-signature {
-      color: #a47b4c;
-      font-size: 12px;
-      margin-top: 4px;
+      color: #a66c68;
+      font-size: 11px;
+      margin-top: 5px;
     }
 
     /* الشريط العلوي */
@@ -105,7 +112,9 @@
       gap: 12px;
     }
 
-    .topbar a { color: var(--gold-light); }
+    .topbar a {
+      color: var(--gold-light);
+    }
 
     /* رأس الموقع */
 
@@ -141,13 +150,13 @@
       border-radius: 12px;
       background: var(--navy);
       color: var(--gold-light);
-      font-family: 'Amiri',serif;
+      font-family: 'Amiri', serif;
       font-size: 33px;
     }
 
     .brand-name {
       display: block;
-      font-family: 'Amiri',serif;
+      font-family: 'Amiri', serif;
       font-size: 30px;
       font-weight: 700;
       line-height: 1.1;
@@ -165,18 +174,20 @@
     .main-nav {
       display: flex;
       align-items: center;
-      gap: 23px;
+      gap: 20px;
     }
 
     .main-nav a {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       color: var(--text);
       transition: color .2s;
     }
 
     .main-nav a:hover,
-    .main-nav a.active { color: var(--gold); }
+    .main-nav a.active {
+      color: var(--gold);
+    }
 
     .header-button {
       background: var(--navy);
@@ -188,42 +199,16 @@
       white-space: nowrap;
     }
 
-    .header-button:hover { background: var(--navy-light); }
-
-    /* زر التحرير العائم */
-
-    .editor-floating {
-      position: fixed;
-      bottom: 22px;
-      left: 18px;
-      z-index: 9999;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 13px 19px;
-      border-radius: 50px;
-      background: var(--navy);
-      color: #fff !important;
-      border: 2px solid var(--gold);
-      box-shadow: 0 5px 20px rgba(0,0,0,.25);
-      font-size: 14px;
-      font-weight: 700;
-      transition: .2s;
-    }
-
-    .editor-floating:hover {
-      background: var(--gold);
-      color: var(--navy) !important;
-      transform: translateY(-3px);
+    .header-button:hover {
+      background: var(--navy-light);
     }
 
     /* الواجهة الرئيسية */
 
     .hero {
       background:
-        radial-gradient(circle at 15% 20%,rgba(189,150,89,.19),transparent 30%),
-        linear-gradient(125deg,#101c2d,#203550);
+        radial-gradient(circle at 15% 20%, rgba(189,150,89,.19), transparent 30%),
+        linear-gradient(125deg, #101c2d, #203550);
       color: white;
       padding: 90px 0 100px;
       overflow: hidden;
@@ -248,13 +233,15 @@
     }
 
     .hero h1 {
-      font-family: 'Amiri',serif;
-      font-size: clamp(43px,6vw,69px);
+      font-family: 'Amiri', serif;
+      font-size: clamp(43px, 6vw, 69px);
       line-height: 1.35;
       margin: 0 0 15px;
     }
 
-    .hero h1 span { color: var(--gold-light); }
+    .hero h1 span {
+      color: var(--gold-light);
+    }
 
     .hero-description {
       max-width: 620px;
@@ -294,7 +281,9 @@
       color: white;
     }
 
-    .button-outline:hover { background: rgba(255,255,255,.1); }
+    .button-outline:hover {
+      background: rgba(255,255,255,.1);
+    }
 
     .hero-art {
       min-height: 290px;
@@ -307,7 +296,7 @@
       width: 235px;
       height: 270px;
       border: 1px solid rgba(230,208,168,.5);
-      background: linear-gradient(145deg,rgba(255,255,255,.1),rgba(255,255,255,.02));
+      background: linear-gradient(145deg, rgba(255,255,255,.1), rgba(255,255,255,.02));
       border-radius: 120px 120px 20px 20px;
       display: flex;
       flex-direction: column;
@@ -325,7 +314,7 @@
     }
 
     .hero-art-letter {
-      font-family: 'Amiri',serif;
+      font-family: 'Amiri', serif;
       font-size: 105px;
       line-height: 1.4;
       color: white;
@@ -383,7 +372,9 @@
       cursor: pointer;
     }
 
-    .search-box button:hover { background: var(--navy-light); }
+    .search-box button:hover {
+      background: var(--navy-light);
+    }
 
     .search-hint {
       text-align: center;
@@ -394,7 +385,9 @@
 
     /* الأقسام */
 
-    .section { padding: 65px 0 10px; }
+    .section {
+      padding: 65px 0 10px;
+    }
 
     .section-heading {
       display: flex;
@@ -414,7 +407,7 @@
 
     .section-heading h2 {
       color: var(--navy);
-      font-family: 'Amiri',serif;
+      font-family: 'Amiri', serif;
       font-size: 32px;
       line-height: 1.4;
       margin: 0;
@@ -428,7 +421,7 @@
 
     .category-grid {
       display: grid;
-      grid-template-columns: repeat(5,1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 15px;
     }
 
@@ -473,11 +466,13 @@
 
     /* المقالات */
 
-    .latest-section { padding: 55px 0; }
+    .latest-section {
+      padding: 55px 0;
+    }
 
     .articles-grid {
       display: grid;
-      grid-template-columns: repeat(3,minmax(0,1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 22px;
     }
 
@@ -494,23 +489,35 @@
       box-shadow: var(--shadow);
     }
 
-    .article-card img {
-      display: block;
-      width: 100%;
+    .article-image {
       height: 205px;
-      object-fit: cover;
+      display: grid;
+      place-items: center;
+      font-size: 65px;
+      background: linear-gradient(135deg, #172333, #405d79);
     }
 
-    .article-card-content { padding: 18px; }
+    .article-image.gold {
+      background: linear-gradient(135deg, #987347, #d3b37f);
+    }
+
+    .article-image.green {
+      background: linear-gradient(135deg, #315b4b, #8aa78b);
+    }
+
+    .article-card-content {
+      padding: 18px;
+    }
 
     .article-card small {
       color: var(--gold);
       font-size: 12px;
     }
 
-    .article-card h2 {
+    .article-card h3 {
       color: var(--navy);
-      font-size: 18px;
+      font-family: 'Amiri', serif;
+      font-size: 21px;
       line-height: 1.7;
       margin: 8px 0;
     }
@@ -521,8 +528,14 @@
       line-height: 1.9;
     }
 
+    .read-more {
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
     .empty {
-      grid-column: 1/-1;
+      grid-column: 1 / -1;
       background: white;
       padding: 35px 20px;
       border: 1px solid var(--border);
@@ -533,11 +546,13 @@
 
     /* مساحة المعرفة */
 
-    .knowledge-section { padding: 45px 0 70px; }
+    .knowledge-section {
+      padding: 45px 0 70px;
+    }
 
     .knowledge-grid {
       display: grid;
-      grid-template-columns: repeat(3,1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
@@ -549,7 +564,9 @@
       border-bottom: 3px solid var(--gold);
     }
 
-    .knowledge-card .icon { font-size: 28px; }
+    .knowledge-card .icon {
+      font-size: 28px;
+    }
 
     .knowledge-card h3 {
       color: var(--navy);
@@ -576,7 +593,7 @@
     }
 
     .discover-banner h2 {
-      font-family: 'Amiri',serif;
+      font-family: 'Amiri', serif;
       font-size: 32px;
       margin: 0 0 8px;
     }
@@ -603,7 +620,7 @@
 
     .footer h3 {
       color: var(--gold-light);
-      font-family: 'Amiri',serif;
+      font-family: 'Amiri', serif;
       font-size: 22px;
       margin: 0 0 12px;
     }
@@ -626,7 +643,9 @@
       font-size: 13px;
     }
 
-    .footer-links a:hover { color: var(--gold-light); }
+    .footer-links a:hover {
+      color: var(--gold-light);
+    }
 
     .copyright {
       text-align: center;
@@ -640,14 +659,27 @@
     /* الجوال */
 
     @media (max-width: 900px) {
-      .main-nav { gap: 13px; }
-      .main-nav a { font-size: 12px; }
-      .category-grid { grid-template-columns: repeat(3,1fr); }
-      .hero-inner { gap: 20px; }
+      .main-nav {
+        gap: 13px;
+      }
+
+      .main-nav a {
+        font-size: 12px;
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .hero-inner {
+        gap: 20px;
+      }
     }
 
     @media (max-width: 650px) {
-      .topbar-inner { font-size: 10px; }
+      .topbar-inner {
+        font-size: 10px;
+      }
 
       .header-inner {
         min-height: auto;
@@ -657,7 +689,9 @@
         gap: 13px;
       }
 
-      .brand-name { font-size: 25px; }
+      .brand-name {
+        font-size: 25px;
+      }
 
       .brand-mark {
         width: 42px;
@@ -678,7 +712,9 @@
         padding: 8px 11px;
       }
 
-      .hero { padding: 60px 0 75px; }
+      .hero {
+        padding: 60px 0 75px;
+      }
 
       .hero-inner {
         grid-template-columns: 1fr;
@@ -691,16 +727,22 @@
         font-size: 14px;
       }
 
-      .hero-actions { justify-content: center; }
+      .hero-actions {
+        justify-content: center;
+      }
 
-      .hero-art { min-height: 235px; }
+      .hero-art {
+        min-height: 235px;
+      }
 
       .hero-art-card {
         width: 175px;
         height: 205px;
       }
 
-      .hero-art-letter { font-size: 75px; }
+      .hero-art-letter {
+        font-size: 75px;
+      }
 
       .hero-circle {
         width: 230px;
@@ -708,32 +750,37 @@
       }
 
       .category-grid {
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
       }
 
-      .category-card { padding: 17px 8px; }
+      .category-card {
+        padding: 17px 8px;
+      }
 
-      .section { padding-top: 45px; }
+      .section {
+        padding-top: 45px;
+      }
 
-      .section-heading h2 { font-size: 27px; }
+      .section-heading h2 {
+        font-size: 27px;
+      }
 
-      .articles-grid { grid-template-columns: 1fr; }
+      .articles-grid {
+        grid-template-columns: 1fr;
+      }
 
-      .knowledge-grid { grid-template-columns: 1fr; }
+      .knowledge-grid {
+        grid-template-columns: 1fr;
+      }
 
       .footer-grid {
         grid-template-columns: 1fr;
         gap: 20px;
       }
 
-      .discover-banner h2 { font-size: 27px; }
-
-      .editor-floating {
-        bottom: 14px;
-        left: 12px;
-        padding: 11px 16px;
-        font-size: 12px;
+      .discover-banner h2 {
+        font-size: 27px;
       }
     }
   </style>
@@ -753,13 +800,13 @@
 <body>
 
   <!-- الإهداء -->
-  <div class="love-dedication">
+  <section class="love-dedication">
     <div class="love-title">لعيونها ❤️</div>
     <div class="love-message">
       إهداء إلى حبيبتي، أجمل حكاياتي وأغلى ما في قلبي.
     </div>
     <div class="love-signature">من القلب… إلى عيونها ❤️</div>
-  </div>
+  </section>
 
   <!-- الشريط العلوي -->
   <div class="topbar">
@@ -819,7 +866,6 @@
             <a class="button button-primary" href="articles.html">
               اكتشف المقالات
             </a>
-
             <a class="button button-outline" href="#categories">
               تصفح الأقسام
             </a>
@@ -840,11 +886,10 @@
 
     <!-- البحث -->
     <section class="container search-section">
-      <form class="search-box" id="searchForm" action="articles.html" method="get">
+      <form class="search-box" id="searchForm">
         <input
           type="search"
           id="articleSearch"
-          name="search"
           placeholder="ابحث عن موضوع أو معلومة..."
           aria-label="البحث في المقالات"
         >
@@ -864,7 +909,10 @@
           <span class="section-kicker">تصفح حسب اهتمامك</span>
           <h2>أقسام خَبايا</h2>
         </div>
-        <a class="section-link" href="articles.html">جميع المقالات ←</a>
+
+        <a class="section-link" href="articles.html">
+          جميع المقالات ←
+        </a>
       </div>
 
       <div class="category-grid">
@@ -894,3 +942,6 @@
         </a>
 
         <a class="category-card" href="articles.html?category=society">
+          <span class="category-icon">🌍</span>
+          <strong>الثقافة والمجتمع</strong>
+          <small>أفكار وثقاف
