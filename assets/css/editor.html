@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>محرر خبايا | لوحة الكتابة</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #f4f1e9;
+      color: #202b3b;
+      font-family: 'IBM Plex Sans Arabic', sans-serif;
+    }
+    .editor-header {
+      background: #142238;
+      color: white;
+      padding: 18px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .editor-header a { color: #e4bd75; text-decoration: none; }
+    .editor-container {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 16px;
+    }
+    .editor-intro { margin-bottom: 22px; }
+    .editor-intro h1 { margin: 0 0 8px; font-size: 27px; }
+    .editor-intro p { color: #697386; margin: 0; }
+    .editor-card {
+      background: white;
+      border-radius: 14px;
+      padding: 22px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 22px #1723380d;
+    }
+    .field { margin-bottom: 17px; }
+    .field label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid #d9dee6;
+      border-radius: 8px;
+      padding: 12px;
+      font: inherit;
+      background: #fff;
+      color: #202b3b;
+    }
+    textarea { min-height: 85px; resize: vertical; }
+    .two-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 10px;
+      background: #f3f5f8;
+      border: 1px solid #d9dee6;
+      border-radius: 9px 9px 0 0;
+    }
+    .toolbar button, .action-button {
+      border: 0;
+      border-radius: 7px;
+      padding: 9px 12px;
+      background: #e5e9ef;
+      color: #1d2b40;
+      font: inherit;
+      cursor: pointer;
+    }
+    .toolbar button:hover { background: #d5dce6; }
+    .toolbar select {
+      width: auto;
+      padding: 7px;
+      font-size: 13px;
+    }
+    #articleContent {
+      min-height: 430px;
+      border: 1px solid #d9dee6;
+      border-top: 0;
+      border-radius: 0 0 9px 9px;
+      padding: 20px;
+      outline: none;
+      line-height: 2;
+      font-size: 17px;
+      background: white;
+    }
+    #articleContent:focus { border-color: #b18a4c; }
+    #articleContent img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 9px;
+    }
+    #articleContent blockquote {
+      border-right: 4px solid #b18a4c;
+      margin: 20px 0;
+      padding: 12px 18px;
+      background: #f8f5ee;
+    }
+    .action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .action-button {
+      background: #142238;
+      color: white;
+      padding: 11px 17px;
+    }
+    .action-button.gold { background: #b18a4c; }
+    .action-button.light { background: #e9edf2; color: #24344b; }
+    .note {
+      background: #fff8e9;
+      border: 1px solid #ead8b3;
+      padding: 12px 14px;
+      border-radius: 8px;
+      color: #68532d;
+      font-size: 13px;
+      line-height: 1.8;
+      margin-top: 14px;
+    }
+    #status {
+      margin-top: 12px;
+      color: #28734b;
+      font-weight: 600;
+    }
+    .preview-box {
+      border: 1px solid #d9dee6;
+      border-radius: 9px;
+      padding: 20px;
+      background: #fff;
+      line-height: 2;
+      display: none;
+    }
+    .preview-box img { max-width: 100%; height: auto; }
+    @media (max-width: 650px) {
+      .two-columns { grid-template-columns: 1fr; }
+      .editor-card { padding: 15px; }
+      .editor-intro h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="editor-header">
+  <strong>خَبايا | لوحة تحرير المقالات</strong>
+  <a href="index.html">العودة إلى المجلة ←</a>
+</header>
+
+<main class="editor-container">
+
+  <section class="editor-intro">
+    <h1>اكتب مقالك الجديد</h1>
+    <p>اكتب ورتّب مقالك، ثم صدّره وارفعه إلى موقع خبايا.</p>
+  </section>
+
+  <section class="editor-card">
+
+    <div class="field">
+      <label for="title">عنوان المقال</label>
+      <input id="title" type="text" placeholder="اكتب عنوان المقال هنا">
+    </div>
+
+    <div class="field">
+      <label for="excerpt">نبذة مختصرة عن المقال</label>
+      <textarea id="excerpt" placeholder="اكتب وصفاً مختصراً يظهر للقراء ومحركات البحث"></textarea>
+    </div>
+
+    <div class="two-columns">
+      <div class="field">
+        <label for="category">القسم</label>
+        <select id="category">
+          <option value="technology">التقنية والذكاء الاصطناعي</option>
+          <option value="health">الصحة والحياة</option>
+          <option value="business">المال والأعمال</option>
+          <option value="education">التعليم والمنح</option>
+          <option value="society">الثقافة والمجتمع</option>
+          <option value="knowledge">حقائق ومعرفة</option>
+          <option value="internet">الإنترنت والتطبيقات</option>
+          <option value="stories">قصص وتجارب</option>
+          <option value="development">تطوير الذات والمهارات</option>
+          <option value="world">اكتشف العالم</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="author">اسم الكاتب</label>
+        <input id="author" type="text" value="فريق خبايا">
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="slug">رابط المقال بالإنجليزية</label>
+      <input id="slug" type="text" placeholder="مثال: artificial-intelligence">
+    </div>
+
+    <div class="field">
+      <label for="cover">رابط صورة الغلاف (اختياري)</label>
+      <input id="cover" type="url" placeholder="https://example.com/image.jpg">
+    </div>
+
+    <div class="field">
+      <label for="seoTitle">عنوان محركات البحث</label>
+      <input id="seoTitle" type="text" placeholder="اتركه فارغاً لاستخدام عنوان المقال">
+    </div>
+
+    <div class="field">
+      <label for="seoDescription">وصف محركات البحث</label>
+      <textarea id="seoDescription" placeholder="وصف واضح ومختصر يساعد Google على فهم المقال"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="keywords">الكلمات المفتاحية</label>
+      <input id="keywords" type="text" placeholder="مثال: الذكاء الاصطناعي، التقنية، التطبيقات">
+    </div>
+
+  </section>
+
+  <section class="editor-card">
+    <h2>محتوى المقال</h2>
+
+    <div class="toolbar">
+      <button type="button" data-command="bold"><b>عريض</b></button>
+      <button type="button" data-command="italic"><i>مائل</i></button>
+      <button type="button" data-command="underline"><u>تحته خط</u></button>
+      <button type="button" data-command="strikeThrough"><s>يتوسطه خط</s></button>
+
+      <select id="formatBlock" aria-label="تنسيق العنوان">
+        <option value="P">فقرة عادية</option>
+        <option value="H2">عنوان رئيسي</option>
+        <option value="H3">عنوان فرعي</option>
+        <option value="BLOCKQUOTE">اقتباس</option>
+      </select>
+
+      <button type="button" data-command="insertUnorderedList">قائمة نقطية</button>
+      <button type="button" data-command="insertOrderedList">قائمة مرقمة</button>
+      <button type="button" id="linkButton">إضافة رابط</button>
+      <button type="button" id="imageButton">إضافة صورة من الجهاز</button>
+      <button type="button" id="videoButton">إضافة فيديو YouTube</button>
+      <button type="button" data-command="justifyRight">يمين</button>
+      <button type="button" data-command="justifyCenter">وسط</button>
+      <button type="button" data-command="justifyLeft">يسار</button>
+      <button type="button" data-command="removeFormat">إزالة التنسيق</button>
+    </div>
+
+    <input id="imageFile" type="file" accept="image/*" hidden>
+
+    <div id="articleContent" contenteditable="true">
+      <h2>ابدأ كتابة مقالك من هنا</h2>
+      <p>اكتب مقدمة المقال، ثم أضف العناوين والفقرات والصور حسب رغبتك.</p>
+    </div>
+
+    <div class="note">
+      ملاحظة: الصور التي تضيفها من جهازك ستُضمّن داخل ملف المقال عند التصدير.
+      يُفضّل استخدام صور مضغوطة حتى لا يصبح حجم المقال كبيراً.
+    </div>
+
+    <div class="action-row">
+      <button class="action-button" type="button" id="saveButton">حفظ المسودة</button>
+      <button class="action-button light" type="button" id="previewButton">معاينة المقال</button>
+      <button class="action-button gold" type="button" id="exportButton">تصدير المقال HTML</button>
+      <button class="action-button light" type="button" id="clearButton">مقال جديد</button>
+    </div>
+
+    <div id="status" role="status"></div>
+  </section>
+
+  <section class="editor-card">
+    <h2>معاينة المقال</h2>
+    <div id="previewBox" class="preview-box"></div>
+  </section>
+
+  <div class="note">
+    تنبيه مهم: هذه لوحة تحرير محلية وليست نظام نشر تلقائي. بعد تصدير المقال،
+    ارفع ملف HTML إلى مجلد articles داخل مستودع GitHub حتى يظهر على موقعك.
+    لا تضع كلمات مرور أو مفاتيح سرية هنا؛ صفحة المحرر ليست محمية بتسجيل دخول.
+  </div>
+
+</main>
+
+<script>
+(function () {
+  const $ = id => document.getElementById(id);
+
+  const fields = [
+    "title", "excerpt", "category", "author", "slug",
+    "cover", "seoTitle", "seoDescription", "keywords"
+  ];
+
+  const content = $("articleContent");
+  const status = $("status");
+
+  function say(message) {
+    status.textContent = message;
+  }
+
+  function getData() {
+    const data = {};
+    fields.forEach(id => data[id] = $(id).value.trim());
+    data.content = content.innerHTML;
+    return data;
+  }
+
+  function setData(data) {
+    fields.forEach(id => {
+      if (data[id] !== undefined) $(id).value = data[id];
+    });
+    if (data.content) content.innerHTML = data.content;
+  }
+
+  document.querySelectorAll("[data-command]").forEach(button => {
+    button.addEventListener("click", () => {
+      content.focus();
+      document.execCommand(button.dataset.command, false, null);
+    });
+  });
+
+  $("formatBlock").addEventListener("change", event => {
+    content.focus();
+    document.execCommand("formatBlock", false, event.target.value);
+  });
+
+  $("linkButton").addEventListener("click", () => {
+    const url = prompt("أدخل رابط الموقع:");
+    if (!url) return;
+
+    try {
+      const parsed = new URL(url);
+      if (!["http:", "https:"].includes(parsed.protocol)) {
+        throw new Error("رابط غير مسموح");
+      }
+      content.focus();
+      document.execCommand("createLink", false, parsed.href);
+    } catch {
+      alert("فضلاً أدخل رابطاً صحيحاً يبدأ بـ https:// أو http://");
+    }
+  });
+
+  $("imageButton").addEventListener("click", () => $("imageFile").click());
+
+  $("imageFile").addEventListener("change", event => {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+      alert("اختر ملف صورة فقط.");
+      event.target.value = "";
+      return;
+    }
+
+    if (file.size > 3 * 1024 * 1024) {
+      alert("حجم الصورة أكبر من 3 ميجابايت. يفضّل ضغطها أولاً.");
+      event.target.value = "";
+      return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      content.focus();
+      const image = document.createElement("img");
+      image.src = reader.result;
+      image.alt = prompt("اكتب وصفاً للصورة لتحسين الوصول ومحركات البحث:") || "صورة توضيحية للمقال";
+
+      const wrapper = document.createElement("p");
+      wrapper.appendChild(image);
+      content.appendChild(wrapper);
+
+      say("تمت إضافة الصورة إلى المقال.");
+      event.target.value = "";
+    };
+
+    reader.readAsDataURL(file);
+  });
+
+  $("videoButton").addEventListener("click", () => {
+    const url = prompt("ألصق رابط فيديو YouTube:");
+    if (!url) return;
+
+    let videoId = "";
+
+    try {
+      const parsed = new URL(url);
+
+      if (parsed.hostname === "youtu.be") {
+        videoId = parsed.pathname.slice(1);
+      } else if (
+        parsed.hostname === "www.youtube.com" ||
+        parsed.hostname === "youtube.com" ||
+        parsed.hostname === "m.youtube.com"
+      ) {
+        if (parsed.pathname === "/watch") {
+          videoId = parsed.searchParams.get("v") || "";
+        } else if (parsed.pathname.startsWith("/embed/")) {
+          videoId = parsed.pathname.split("/")[2] || "";
+        }
+      }
+    } catch {
+      videoId = "";
+    }
+
+    if (!/^[a-zA-Z0-9_-]{11}$/.test(videoId)) {
+      alert("رابط YouTube غير صحيح.");
+      return;
+    }
+
+    const paragraph = document.createElement("p");
+    const link = document.createElement("a");
+    link.href = "https://www.youtube.com/watch?v=" + videoId;
+    link.textContent = "مشاهدة الفيديو على YouTube";
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    paragraph.appendChild(link);
+    content.appendChild(paragraph);
+
+    say("تمت إضافة رابط الفيديو.");
+  });
+
+  $("saveButton").addEventListener("click", () => {
+    try {
+      localStorage.setItem("khabayaDraft", JSON.stringify(getData()));
+      say("تم حفظ المسودة على هذا الجهاز والمتصفح.");
+    } catch {
+      say("تعذر الحفظ. قد تكون المسودة أو الصور كبيرة جداً.");
+    }
+  });
+
+  function loadDraft() {
+    try {
+      const saved = localStorage.getItem("khabayaDraft");
+      if (saved) {
+        setData(JSON.parse(saved));
+        say("تم استرجاع المسودة المحفوظة.");
+      }
+    } catch {
+      say("تعذر استرجاع المسودة.");
+    }
+  }
+
+  $("previewButton").addEventListener("click", () => {
+    const data = getData();
+    const box = $("previewBox");
+
+    box.innerHTML = "";
+
+    const heading = document.createElement("h1");
+    heading.textContent = data.title || "عنوان المقال";
+
+    const description = document.createElement("p");
+    description.textContent = data.excerpt || "";
+
+    box.appendChild(heading);
+    box.appendChild(description);
+
+    if (data.cover) {
+      try {
+        const image = document.createElement("img");
+        image.src = new URL(data.cover).href;
+        image.alt = data.title || "غلاف المقال";
+        box.appendChild(image);
+      } catch {}
+    }
+
+    const article = document.createElement("div");
+    article.innerHTML = data.content;
+    box.appendChild(article);
+
+    box.style.display = "block";
+    box.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  function cleanContent(html) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+
+    const allowed = [
+      "P", "BR", "H2", "H3", "H4", "STRONG", "B", "EM", "I",
+      "U", "S", "UL", "OL", "LI", "BLOCKQUOTE", "A", "IMG",
+      "TABLE", "THEAD", "TBODY", "TR", "TH", "TD", "HR"
+    ];
+
+    function cleanNode(node) {
+      [...node.childNodes].forEach(child => {
+        if (child.nodeType === Node.ELEMENT_NODE) {
+          if (!allowed.includes(child.tagName)) {
+            child.replaceWith(...child.childNodes);
+            return;
+          }
+
+          [...child.attributes].forEach(attribute => {
+            const name = attribute.name.toLowerCase();
+
+            if (child.tagName === "A" && name === "href") {
+              try {
+                const parsed = new URL(attribute.value);
+                if (!["http:", "https:"].includes(parsed.protocol)) {
+                  child.removeAttribute(attribute.name);
+                }
+              } catch {
+                child.removeAttribute(attribute.name);
+              }
+              return;
+            }
+
+            if (child.tagName === "IMG" && name === "src") {
+              const value = attribute.value;
+              if (
+                !value.startsWith("data:image/") &&
+                !/^https?:\/\//i.test(value)
+              ) child.removeAttribute(attribute.name);
+              return;
+            }
+
+            if (child.tagName === "IMG" && name === "alt") return;
+
+            child.removeAttribute(attribute.name);
+          });
+
+          if (child.tagName === "A") {
+            child.setAttribute("target", "_blank");
+            child.setAttribute("rel", "noopener noreferrer");
+          }
+
+          cleanNode(child);
+        } else if (child.nodeType !== Node.TEXT_NODE) {
+          child.remove();
+        }
+      });
+    }
+
+    cleanNode(doc.body);
+    return doc.body.innerHTML;
+  }
+
+  $("exportButton").addEventListener("click", () => {
+    const data = getData();
+
+    if (!data.title) {
+      alert("اكتب عنوان المقال أولاً.");
+      $("title").focus();
+      return;
+    }
+
+    const slug = (data.slug || "article-" + Date.now())
+      .toLowerCase()
+      .replace(/[^a-z0-9-]/g, "-")
+      .replace(/-+/g, "-")
+      .replace(/^-|-$/g, "");
+
+    const safeTitle = escapeHTML(data.seoTitle || data.title);
+    const safeDescription = escapeHTML(data.seoDescription || data.excerpt);
+    const safeAuthor = escapeHTML(data.author || "فريق خبايا");
+    const safeExcerpt = escapeHTML(data.excerpt);
+    const safeCover = safeURL(data.cover);
+    const articleHTML = cleanContent(data.content);
+    const date = new Date().toISOString().slice(0, 10);
+    const pageURL = "https://lqay146-debug.github.io/Khabaya-Magazine/articles/" + slug + ".html";
+
+    const html = `<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${safeTitle}</title>
+<meta name="description" content="${safeDescription}">
+<meta name="author" content="${safeAuthor}">
+<meta name="keywords" content="${escapeHTML(data.keywords)}">
+<link rel="canonical" href="${pageURL}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="${safeTitle}">
+<meta property="og:description" content="${safeDescription}">
+${safeCover ? `<meta property="og:image" content="${safeCover}">` : ""}
+<link rel="stylesheet" href="../assets/css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body{background:#f8f6f0;color:#202b3b;font-family:'IBM Plex Sans Arabic',sans-serif;line-height:2}
+.article-page{max-width:850px;margin:35px auto;padding:24px;background:white;border-radius:14px}
+.article-page h1{line-height:1.5;font-size:34px}
+.article-meta{color:#788292;font-size:14px;margin:15px 0}
+.article-cover{width:100%;height:auto;border-radius:12px;margin:20px 0}
+.article-body{font-size:18px;line-height:2.1}
+.article-body h2,.article-body h3{margin-top:30px}
+.article-body img{max-width:100%;height:auto;border-radius:10px}
+.article-body blockquote{border-right:4px solid #b18a4c;padding:12px 18px;background:#f8f5ee}
+.back-link{color:#9a7337;text-decoration:none}
+@media(max-width:600px){.article-page{margin:12px;padding:17px}.article-page h1{font-size:26px}}
+</style>
+</head>
+<body>
+<main class="article-page">
+<a class="back-link" href="../index.html">← العودة إلى خبايا</a>
+<h1>${escapeHTML(data.title)}</h1>
+<p class="article-meta">بقلم ${safeAuthor} | ${date}</p>
+${safeExcerpt ? `<p>${safeExcerpt}</p>` : ""}
+${safeCover ? `<img class="article-cover" src="${safeCover}" alt="${escapeHTML(data.title)}">` : ""}
+<article class="article-body">${articleHTML}</article>
+<hr>
+<p>نُشر في مجلة خبايا | <a href="../index.html">الصفحة الرئيسية</a></p>
+</main>
+</body>
+</html>`;
+
+    const blob = new Blob([html], { type: "text/html;charset=utf-8" });
+    const downloadURL = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = downloadURL;
+    link.download = slug + ".html";
+    link.click();
+    URL.revokeObjectURL(downloadURL);
+
+    say("تم تصدير المقال. ارفع الملف إلى مجلد articles في GitHub.");
+  });
+
+  $("clearButton").addEventListener("click", () => {
+    if (!confirm("هل تريد بدء مقال جديد؟ تأكد من حفظ المقال الحالي أولاً.")) return;
+
+    fields.forEach(id => {
+      if (id === "category") $(id).selectedIndex = 0;
+      else if (id === "author") $(id).value = "فريق خبايا";
+      else $(id).value = "";
+    });
+
+    content.innerHTML = "<h2>ابدأ كتابة مقالك من هنا</h2><p>اكتب م
