@@ -5,582 +5,925 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>خَبايا | مجلة المعرفة والاكتشاف</title>
-  <meta name="description" content="خَبايا مجلة عربية تقدم مقالات مميزة في التقنية والصحة والمال والتعليم والثقافة والمعرفة وتطوير الذات.">
+
+  <meta name="description" content="خَبايا مجلة عربية مستقلة للمعرفة والاكتشاف. اكتشف مقالات التقنية والصحة والمال والتعليم والثقافة والعلوم وتطوير الذات.">
+  <meta name="keywords" content="خبايا, مجلة عربية, التقنية, الذكاء الاصطناعي, الصحة, التعليم, الثقافة, المعرفة">
+  <meta name="author" content="فريق تحرير خبايا">
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#142238">
 
   <link rel="canonical" href="https://lqay146-debug.github.io/Khabaya-Magazine/">
-  <link rel="stylesheet" href="assets/css/style.css">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_AR">
+  <meta property="og:site_name" content="خَبايا">
+  <meta property="og:title" content="خَبايا | اكتشف ما وراء التفاصيل">
+  <meta property="og:description" content="مجلة عربية مستقلة تفتح لك أبواب المعرفة والاكتشاف.">
+  <meta property="og:url" content="https://lqay146-debug.github.io/Khabaya-Magazine/">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="assets/css/style.css">
+
   <style>
     :root {
       --navy: #142238;
-      --gold: #b18a4c;
-      --cream: #f8f6f0;
-      --text: #202b3b;
-      --muted: #737d8d;
+      --navy-light: #203550;
+      --gold: #bd9659;
+      --gold-light: #e6d0a8;
+      --cream: #f8f6f1;
+      --white: #ffffff;
+      --text: #263347;
+      --muted: #788394;
+      --border: #eae6de;
+      --shadow: 0 12px 35px rgba(20,34,56,.07);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
       background: var(--cream);
       color: var(--text);
       font-family: 'IBM Plex Sans Arabic', sans-serif;
+      line-height: 1.8;
     }
 
-    a { text-decoration: none; }
-
-    .topbar {
-      background: var(--navy);
-      color: white;
-      padding: 10px 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      font-size: 13px;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .topbar a { color: #e6c68d; }
-
-    .main-header {
-      background: white;
-      padding: 18px 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      border-bottom: 1px solid #eee9df;
-    }
-
-    .brand {
-      color: var(--navy);
-      font-family: 'Amiri', serif;
-      font-size: 37px;
-      font-weight: bold;
-      line-height: 1;
-    }
-
-    .brand small {
-      display: block;
-      font-family: 'IBM Plex Sans Arabic', sans-serif;
-      font-size: 10px;
-      letter-spacing: 3px;
-      color: var(--gold);
-      text-align: center;
-    }
-
-    .navigation {
-      display: flex;
-      gap: 22px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .navigation a {
-      color: var(--text);
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .navigation a:hover { color: var(--gold); }
-
-    .hero {
-      background: var(--navy);
-      color: white;
-      padding: 75px 20px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      border: 1px solid #ffffff18;
-      border-radius: 50%;
-      top: -150px;
-      right: -80px;
-    }
-
-    .hero-label {
-      color: #e5c58b;
-      font-size: 13px;
-      letter-spacing: 2px;
-    }
-
-    .hero h1 {
-      font-family: 'Amiri', serif;
-      font-size: clamp(38px, 6vw, 62px);
-      margin: 12px 0;
-      line-height: 1.4;
-    }
-
-    .hero p {
-      max-width: 650px;
-      margin: 0 auto 25px;
-      color: #d1d7e0;
-      line-height: 2;
-      font-size: 16px;
-    }
-
-    .hero-button {
-      display: inline-block;
-      background: var(--gold);
-      color: white;
-      padding: 12px 25px;
-      border-radius: 7px;
-      font-weight: 700;
-    }
-
-    .hero-button:hover { background: #9b743b; }
-
-    .search-area {
-      max-width: 650px;
-      margin: -25px auto 35px;
-      padding: 0 15px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .search-box {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 7px 25px #17233816;
-      padding: 8px;
-      display: flex;
-      gap: 8px;
-    }
-
-    .search-box input {
-      border: 0;
-      outline: none;
-      flex: 1;
-      min-width: 0;
-      padding: 12px;
+    button,
+    input {
       font: inherit;
-    }
-
-    .search-box button {
-      border: 0;
-      background: var(--navy);
-      color: white;
-      padding: 10px 20px;
-      border-radius: 7px;
-      font: inherit;
-      cursor: pointer;
     }
 
     .container {
-      max-width: 1150px;
-      margin: 0 auto;
-      padding: 15px 18px 50px;
+      width: min(1160px, 92%);
+      margin: auto;
     }
 
-    .section {
-      margin: 40px 0;
+    /* الشريط العلوي */
+
+    .topbar {
+      background: var(--navy);
+      color: #e8eaf0;
+      padding: 7px 0;
+      font-size: 12px;
     }
 
-    .section-heading {
+    .topbar-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 12px;
-      margin-bottom: 20px;
+    }
+
+    .topbar a {
+      color: var(--gold-light);
+    }
+
+    /* رأس الموقع */
+
+    .site-header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .header-inner {
+      min-height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--navy);
+      flex-shrink: 0;
+    }
+
+    .brand-mark {
+      width: 49px;
+      height: 49px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--navy);
+      color: var(--gold-light);
+      font-family: 'Amiri', serif;
+      font-size: 33px;
+    }
+
+    .brand-name {
+      display: block;
+      font-family: 'Amiri', serif;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--gold);
+      font-size: 9px;
+      letter-spacing: 2px;
+      direction: ltr;
+      text-align: right;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 23px;
+    }
+
+    .main-nav a {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      transition: color .2s;
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
+      color: var(--gold);
+    }
+
+    .header-button {
+      background: var(--navy);
+      color: white;
+      padding: 10px 17px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .header-button:hover {
+      background: var(--navy-light);
+    }
+
+    /* الواجهة الرئيسية */
+
+    .hero {
+      background:
+        radial-gradient(circle at 15% 20%, rgba(189,150,89,.19), transparent 30%),
+        linear-gradient(125deg, #101c2d, #203550);
+      color: white;
+      padding: 90px 0 100px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.4fr .8fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .hero-label {
+      display: inline-block;
+      color: var(--gold-light);
+      font-size: 13px;
+      border: 1px solid rgba(230,208,168,.35);
+      padding: 5px 13px;
+      border-radius: 30px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-family: 'Amiri', serif;
+      font-size: clamp(43px, 6vw, 69px);
+      line-height: 1.35;
+      margin: 0 0 15px;
+    }
+
+    .hero h1 span {
+      color: var(--gold-light);
+    }
+
+    .hero-description {
+      max-width: 620px;
+      color: #d3dbe5;
+      font-size: 16px;
+      line-height: 2.1;
+      margin: 0 0 27px;
+    }
+
+    .hero-actions {
+      display: flex;
       flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 23px;
+      border-radius: 7px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: .2s;
+    }
+
+    .button-primary {
+      background: var(--gold);
+      color: white;
+    }
+
+    .button-primary:hover {
+      background: #a77f42;
+      transform: translateY(-2px);
+    }
+
+    .button-outline {
+      border: 1px solid rgba(255,255,255,.45);
+      color: white;
+    }
+
+    .button-outline:hover {
+      background: rgba(255,255,255,.1);
+    }
+
+    .hero-art {
+      min-height: 290px;
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .hero-art-card {
+      width: 235px;
+      height: 270px;
+      border: 1px solid rgba(230,208,168,.5);
+      background: linear-gradient(145deg, rgba(255,255,255,.1), rgba(255,255,255,.02));
+      border-radius: 120px 120px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 25px 70px rgba(0,0,0,.2);
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-art-small {
+      color: var(--gold-light);
+      letter-spacing: 5px;
+      font-size: 12px;
+    }
+
+    .hero-art-letter {
+      font-family: 'Amiri', serif;
+      font-size: 105px;
+      line-height: 1.4;
+      color: white;
+    }
+
+    .hero-art-caption {
+      color: #d7dce4;
+      font-size: 13px;
+    }
+
+    .hero-circle {
+      width: 300px;
+      height: 300px;
+      border: 1px solid rgba(230,208,168,.2);
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    /* البحث */
+
+    .search-section {
+      position: relative;
+      margin-top: -32px;
+      z-index: 5;
+    }
+
+    .search-box {
+      background: white;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      border-radius: 12px;
+      padding: 9px;
+      display: flex;
+      gap: 10px;
+      max-width: 730px;
+      margin: auto;
+    }
+
+    .search-box input {
+      flex: 1;
+      min-width: 0;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      padding: 10px 14px;
+      color: var(--text);
+    }
+
+    .search-box button {
+      background: var(--navy);
+      color: white;
+      border: 0;
+      border-radius: 8px;
+      padding: 10px 25px;
+      cursor: pointer;
+    }
+
+    .search-box button:hover {
+      background: var(--navy-light);
+    }
+
+    .search-hint {
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      margin: 10px 0 0;
+    }
+
+    /* الأقسام */
+
+    .section {
+      padding: 65px 0 10px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .section-kicker {
+      display: block;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 3px;
     }
 
     .section-heading h2 {
-      font-family: 'Amiri', serif;
-      font-size: 29px;
-      margin: 0;
       color: var(--navy);
+      font-family: 'Amiri', serif;
+      font-size: 32px;
+      line-height: 1.4;
+      margin: 0;
     }
 
-    .section-heading a {
+    .section-link {
       color: var(--gold);
+      font-size: 13px;
       font-weight: 700;
-      font-size: 14px;
     }
 
-    .categories-grid {
+    .category-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 13px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
     }
 
     .category-card {
       background: white;
-      padding: 20px 13px;
-      border-radius: 10px;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      padding: 22px 13px;
       text-align: center;
-      border: 1px solid #eee9df;
-      transition: .2s;
-      color: var(--navy);
+      transition: .25s;
     }
 
     .category-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-5px);
       border-color: var(--gold);
+      box-shadow: var(--shadow);
     }
 
     .category-icon {
-      display: block;
-      font-size: 28px;
-      margin-bottom: 8px;
+      width: 53px;
+      height: 53px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 12px;
+      background: #f5f0e7;
+      font-size: 25px;
     }
 
-    .category-card strong { font-size: 14px; }
+    .category-card strong {
+      display: block;
+      font-size: 13px;
+      color: var(--navy);
+    }
+
+    .category-card small {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 5px;
+    }
+
+    /* المقالات */
+
+    .latest-section {
+      padding: 55px 0;
+    }
 
     .articles-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
     }
 
     .article-card {
       background: white;
+      border: 1px solid var(--border);
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 4px 18px #1723380d;
-      transition: .2s;
+      transition: .25s;
     }
 
-    .article-card:hover { transform: translateY(-4px); }
+    .article-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
 
     .article-card img {
-      width: 100%;
-      height: 190px;
-      object-fit: cover;
       display: block;
+      width: 100%;
+      height: 205px;
+      object-fit: cover;
     }
 
-    .article-card-content { padding: 17px; }
+    .article-card-content {
+      padding: 18px;
+    }
+
+    .article-card small {
+      color: var(--gold);
+      font-size: 12px;
+    }
 
     .article-card h2 {
-      font-size: 19px;
-      line-height: 1.6;
-      margin: 8px 0;
       color: var(--navy);
+      font-size: 18px;
+      line-height: 1.7;
+      margin: 8px 0;
     }
 
     .article-card p {
-      font-size: 14px;
-      line-height: 1.9;
       color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
     }
 
-    .article-card small { color: var(--gold); }
-
     .empty {
+      grid-column: 1 / -1;
       background: white;
       padding: 35px 20px;
+      border: 1px solid var(--border);
       border-radius: 12px;
       text-align: center;
       color: var(--muted);
-      grid-column: 1 / -1;
     }
 
-    .insight-grid {
+    /* مساحة المعرفة */
+
+    .knowledge-section {
+      padding: 45px 0 70px;
+    }
+
+    .knowledge-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 15px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
     }
 
-    .insight {
+    .knowledge-card {
       background: white;
-      padding: 22px;
-      border-radius: 10px;
-      border-right: 4px solid var(--gold);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 25px;
+      border-bottom: 3px solid var(--gold);
     }
 
-    .insight h3 {
-      margin-top: 0;
+    .knowledge-card .icon {
+      font-size: 28px;
+    }
+
+    .knowledge-card h3 {
       color: var(--navy);
+      font-size: 18px;
+      margin: 9px 0;
     }
 
-    .insight p {
+    .knowledge-card p {
       color: var(--muted);
-      line-height: 1.9;
-      margin-bottom: 0;
+      font-size: 13px;
+      line-height: 2;
+      margin: 0;
     }
 
-    .newsletter {
+    /* الدعوة للاكتشاف */
+
+    .discover-banner {
       background: var(--navy);
       color: white;
-      padding: 40px 20px;
+      border-radius: 15px;
       text-align: center;
-      border-radius: 14px;
-      margin: 45px 0;
+      padding: 45px 20px;
+      margin-bottom: 70px;
     }
 
-    .newsletter h2 {
+    .discover-banner h2 {
       font-family: 'Amiri', serif;
-      font-size: 30px;
-      margin: 0 0 10px;
+      font-size: 32px;
+      margin: 0 0 8px;
     }
 
-    .newsletter p {
-      color: #d1d7e0;
-      line-height: 1.9;
+    .discover-banner p {
+      color: #d3dbe5;
+      margin: 0 0 20px;
+      font-size: 14px;
     }
+
+    /* التذييل */
 
     .footer {
       background: #101c2d;
       color: white;
-      padding: 40px 6%;
+      padding: 48px 0 20px;
     }
 
-    .footer-content {
-      max-width: 1100px;
-      margin: auto;
+    .footer-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 25px;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 35px;
     }
 
-    .footer h3 { color: #e5c58b; }
+    .footer h3 {
+      color: var(--gold-light);
+      font-family: 'Amiri', serif;
+      font-size: 22px;
+      margin: 0 0 12px;
+    }
 
-    .footer p, .footer a {
-      color: #c3cad5;
-      font-size: 14px;
+    .footer p {
+      color: #bdc7d4;
+      font-size: 13px;
       line-height: 2;
+      max-width: 390px;
     }
 
     .footer-links {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 8px;
+    }
+
+    .footer-links a {
+      color: #c6ced9;
+      font-size: 13px;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold-light);
     }
 
     .copyright {
       text-align: center;
-      border-top: 1px solid #ffffff20;
-      padding-top: 20px;
-      margin-top: 30px;
-      color: #aeb7c5;
-      font-size: 12px;
+      border-top: 1px solid rgba(255,255,255,.12);
+      margin-top: 35px;
+      padding-top: 18px;
+      color: #9da9b8;
+      font-size: 11px;
+    }
+
+    /* الجوال والأجهزة الصغيرة */
+
+    @media (max-width: 900px) {
+      .main-nav {
+        gap: 13px;
+      }
+
+      .main-nav a {
+        font-size: 12px;
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .hero-inner {
+        gap: 20px;
+      }
     }
 
     @media (max-width: 650px) {
-      .main-header { justify-content: center; }
-      .navigation { justify-content: center; gap: 14px; }
-      .hero { padding: 55px 18px; }
-      .brand { font-size: 32px; }
+      .topbar-inner {
+        font-size: 10px;
+      }
+
+      .header-inner {
+        min-height: auto;
+        padding-top: 14px;
+        padding-bottom: 14px;
+        flex-wrap: wrap;
+        gap: 13px;
+      }
+
+      .brand-name {
+        font-size: 25px;
+      }
+
+      .brand-mark {
+        width: 42px;
+        height: 42px;
+        font-size: 28px;
+      }
+
+      .main-nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 9px 16px;
+      }
+
+      .header-button {
+        font-size: 11px;
+        padding: 8px 11px;
+      }
+
+      .hero {
+        padding: 60px 0 75px;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 14px;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-art {
+        min-height: 235px;
+      }
+
+      .hero-art-card {
+        width: 175px;
+        height: 205px;
+      }
+
+      .hero-art-letter {
+        font-size: 75px;
+      }
+
+      .hero-circle {
+        width: 230px;
+        height: 230px;
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .category-card {
+        padding: 17px 8px;
+      }
+
+      .section {
+        padding-top: 45px;
+      }
+
+      .section-heading h2 {
+        font-size: 27px;
+      }
+
+      .articles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .knowledge-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .discover-banner h2 {
+        font-size: 27px;
+      }
     }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "خَبايا",
+    "alternateName": "KHABAYA MAGAZINE",
+    "url": "https://lqay146-debug.github.io/Khabaya-Magazine/",
+    "inLanguage": "ar"
+  }
+  </script>
 </head>
 
 <body>
 
+  <!-- الشريط العلوي -->
   <div class="topbar">
-    <span>مجلة عربية للمعرفة والاكتشاف</span>
-    <a href="articles.html">اكتشف جميع المقالات ←</a>
+    <div class="container topbar-inner">
+      <span>مجلة خَبايا الإلكترونية</span>
+      <a href="articles.html">اكتشف جميع المقالات ←</a>
+    </div>
   </div>
 
-  <header class="main-header">
-    <a class="brand" href="index.html">
-      خَبايا
-      <small>KHABAYA MAGAZINE</small>
-    </a>
+  <!-- رأس الموقع -->
+  <header class="site-header">
+    <div class="container header-inner">
 
-    <nav class="navigation">
-      <a href="index.html">الرئيسية</a>
-      <a href="articles.html">جميع المقالات</a>
-      <a href="#categories">الأقسام</a>
-      <a href="#latest">أحدث المقالات</a>
-      <a href="about.html">من نحن</a>
-      <a href="contact.html">اتصل بنا</a>
-    </nav>
+      <a class="brand" href="index.html" aria-label="الصفحة الرئيسية لخبايا">
+        <span class="brand-mark">خ</span>
+        <span>
+          <strong class="brand-name">خَبايا</strong>
+          <small>KHABAYA MAGAZINE</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="القائمة الرئيسية">
+        <a class="active" href="index.html">الرئيسية</a>
+        <a href="articles.html">المقالات</a>
+        <a href="#categories">الأقسام</a>
+        <a href="#latest">أحدث المقالات</a>
+        <a href="about.html">من نحن</a>
+        <a href="contact.html">اتصل بنا</a>
+      </nav>
+
+      <a class="header-button" href="editor.html">لوحة التحرير ✎</a>
+
+    </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-label">مرحباً بك في خَبايا</div>
-    <h1>وراء كل معرفة حكاية</h1>
-    <p>
-      نفتح لك أبواب المعرفة، ونأخذك في رحلة بين التقنية والحياة
-      والثقافة والعلوم والأفكار التي تستحق الاكتشاف.
-    </p>
-    <a class="hero-button" href="articles.html">ابدأ رحلة الاكتشاف</a>
-  </section>
+  <main>
 
-  <div class="search-area">
-    <form class="search-box" id="searchForm">
-      <input id="searchInput" type="search" placeholder="ابحث عن موضوع يهمك...">
-      <button type="submit">بحث</button>
-    </form>
-  </div>
+    <!-- الواجهة الرئيسية -->
+    <section class="hero">
+      <div class="container hero-inner">
 
-  <main class="container">
+        <div>
+          <span class="hero-label">مرحباً بك في خَبايا</span>
 
-    <section class="section" id="categories">
+          <h1>
+            اكتشف ما وراء
+            <span>التفاصيل.</span>
+          </h1>
+
+          <p class="hero-description">
+            مساحة عربية للمعرفة والاكتشاف. نأخذك في رحلة بين التقنية
+            والعلوم والثقافة والحياة، ونقدم لك مقالات وأفكاراً ومعلومات
+            تستحق وقتك وتفتح أمامك آفاقاً جديدة.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="articles.html">
+              اكتشف المقالات
+            </a>
+
+            <a class="button button-outline" href="#categories">
+              تصفح الأقسام
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <div class="hero-circle"></div>
+
+          <div class="hero-art-card">
+            <span class="hero-art-small">KHABAYA</span>
+            <span class="hero-art-letter">خَ</span>
+            <span class="hero-art-caption">المعرفة تبدأ بسؤال</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- البحث -->
+    <section class="container search-section">
+      <form class="search-box" id="searchForm">
+        <input
+          type="search"
+          id="articleSearch"
+          placeholder="ابحث عن موضوع أو معلومة..."
+          aria-label="البحث في المقالات"
+        >
+        <button type="submit">ابحث</button>
+      </form>
+
+      <p class="search-hint">
+        اكتب كلمة أو عنواناً للعثور على ما تبحث عنه.
+      </p>
+    </section>
+
+    <!-- الأقسام -->
+    <section class="container section" id="categories">
+
       <div class="section-heading">
-        <h2>تصفّح الأقسام</h2>
+        <div>
+          <span class="section-kicker">تصفح حسب اهتمامك</span>
+          <h2>أقسام خَبايا</h2>
+        </div>
+
+        <a class="section-link" href="articles.html">
+          جميع المقالات ←
+        </a>
       </div>
 
-      <div class="categories-grid">
+      <div class="category-grid">
+
         <a class="category-card" href="articles.html?category=technology">
           <span class="category-icon">🤖</span>
           <strong>التقنية والذكاء الاصطناعي</strong>
+          <small>اكتشف عالم التقنية</small>
         </a>
 
         <a class="category-card" href="articles.html?category=health">
           <span class="category-icon">🌿</span>
           <strong>الصحة والحياة</strong>
+          <small>حياة أفضل ومعرفة أوسع</small>
         </a>
 
         <a class="category-card" href="articles.html?category=business">
           <span class="category-icon">💰</span>
           <strong>المال والأعمال</strong>
+          <small>الأعمال والاقتصاد</small>
         </a>
 
         <a class="category-card" href="articles.html?category=education">
           <span class="category-icon">🎓</span>
           <strong>التعليم والمنح</strong>
+          <small>فرص التعلم والتطوير</small>
         </a>
 
         <a class="category-card" href="articles.html?category=society">
           <span class="category-icon">🌍</span>
           <strong>الثقافة والمجتمع</strong>
+          <small>أفكار وثقافات متنوعة</small>
         </a>
 
         <a class="category-card" href="articles.html?category=knowledge">
           <span class="category-icon">🧠</span>
           <strong>حقائق ومعرفة</strong>
+          <small>معلومات تستحق الاكتشاف</small>
         </a>
 
         <a class="category-card" href="articles.html?category=internet">
           <span class="category-icon">📱</span>
           <strong>الإنترنت والتطبيقات</strong>
+          <small>أدوات وخدمات رقمية</small>
         </a>
 
         <a class="category-card" href="articles.html?category=stories">
           <span class="category-icon">📖</span>
           <strong>قصص وتجارب</strong>
+          <small>حكايات وتجارب ملهمة</small>
         </a>
 
         <a class="category-card" href="articles.html?category=development">
           <span class="category-icon">🚀</span>
           <strong>تطوير الذات والمهارات</strong>
+          <small>طور قدراتك ومهاراتك</small>
         </a>
 
         <a class="category-card" href="articles.html?category=world">
           <span class="category-icon">🗺️</span>
-          <strong>اكتشف العالم</strong>
-        </a>
-      </div>
-    </section>
-
-    <section class="section" id="latest">
-      <div class="section-heading">
-        <h2>أحدث مقالات خَبايا</h2>
-        <a href="articles.html">عرض جميع المقالات ←</a>
-      </div>
-
-      <div id="homeArticlesGrid" class="articles-grid">
-        <div class="empty">
-          <h3>جاري تحميل المقالات...</h3>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-heading">
-        <h2>مساحات تستحق الاكتشاف</h2>
-      </div>
-
-      <div class="insight-grid">
-        <article class="insight">
-          <h3>💡 خبايا المعرفة</h3>
-          <p>أفكار ومعلومات وحقائق تفتح لك آفاقاً جديدة وتضيف إلى معرفتك.</p>
-        </article>
-
-        <article class="insight">
-          <h3>🔍 اكتشف بنفسك</h3>
-          <p>موضوعات تساعدك على فهم العالم من حولك واكتشاف تفاصيله.</p>
-        </article>
-
-        <article class="insight">
-          <h3>✨ نحو الأفضل</h3>
-          <p>مهارات وتجارب وأفكار عملية تساعدك على تطوير حياتك.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="newsletter">
-      <h2>المعرفة تبدأ من هنا</h2>
-      <p>تجوّل بين مقالات خبايا، واكتشف موضوعات جديدة تستحق وقتك.</p>
-      <a class="hero-button" href="articles.html">تصفّح المقالات</a>
-    </section>
-
-  </main>
-
-  <footer class="footer">
-    <div class="footer-content">
-      <div>
-        <h3>خَبايا</h3>
-        <p>مجلة عربية مستقلة، نؤمن بأن المعرفة رحلة لا تنتهي، وأن وراء كل موضوع خبايا تستحق الاكتشاف.</p>
-      </div>
-
-      <div>
-        <h3>تصفّح</h3>
-        <div class="footer-links">
-          <a href="index.html">الرئيسية</a>
-          <a href="articles.html">جميع المقالات</a>
-          <a href="#categories">الأقسام</a>
-        </div>
-      </div>
-
-      <div>
-        <h3>عن المجلة</h3>
-        <div class="footer-links">
-          <a href="about.html">من نحن</a>
-          <a href="contact.html">اتصل بنا</a>
-          <a href="privacy.html">سياسة الخصوصية</a>
-          <a href="terms.html">الشروط والأحكام</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="copyright">
-      جميع الحقوق محفوظة © خَبايا KHABAYA
-    </div>
-  </footer>
-
-  <script src="assets/js/articles.js"></script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const grid = document.getElementById("homeArticlesGrid");
-
-      if (typeof KHABAYA_ARTICLES !== "undefined") {
-        khabayaRenderArticles(grid, KHABAYA_ARTICLES.slice(0, 6));
-      }
-
-      const form = document.getElementById("searchForm");
-      const input = document.getElementById("searchInput");
-
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
-        const query = input.value.trim();
-
-        if (query) {
-          window.location.href = "articles.html?q=" + encodeURIComponent(query);
-        }
-      });
-    });
-  </script>
-
-</body>
-</html>
+          <strong
